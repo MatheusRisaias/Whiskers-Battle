@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c3utfrf3tx0bq"]
+
+[ext_resource type="Script" uid="uid://dv4w447ygna60" path="res://Scripts/Screens_Win_Script/salem_win.gd" id="1_a0xdm"]
+[ext_resource type="Texture2D" uid="uid://do2n8l0073lmx" path="res://Assets/Screen_Wins/salem_winner_01.png" id="2_agpk0"]
+[ext_resource type="Texture2D" uid="uid://cosn6oep72wsi" path="res://Assets/Screen_Wins/salem_winner_02.png" id="3_0moq8"]
+[ext_resource type="Texture2D" uid="uid://dvbomf2qtjvse" path="res://Assets/MENU - HUD/BOTÕES/btn_restart.png" id="4_u5hsy"]
+[ext_resource type="Texture2D" uid="uid://bp1b81m7cwiq" path="res://Assets/MENU - HUD/BOTÕES/btn_restart_pressed.png" id="5_hq383"]
+[ext_resource type="Texture2D" uid="uid://c4dfxlsd0br2b" path="res://Assets/MENU - HUD/BOTÕES/btn_menu.png" id="6_ue7np"]
+[ext_resource type="Texture2D" uid="uid://cfvxinc8nauth" path="res://Assets/MENU - HUD/BOTÕES/btn_menu_pressed.png" id="7_uap0q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_agpk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0moq8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Salem_Win" type="Control" unique_id=1106327801]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a0xdm")
+
+[node name="Background" type="AnimatedSprite2D" parent="." unique_id=412828484]
+position = Vector2(240, 320)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+
+[node name="Restart_btn" type="TextureButton" parent="." unique_id=1498976514]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 522.0
+offset_right = 285.0
+offset_bottom = 568.0
+texture_normal = ExtResource("4_u5hsy")
+texture_pressed = ExtResource("5_hq383")
+
+[node name="Menu_btn" type="TextureButton" parent="." unique_id=118025875]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 571.0
+offset_right = 290.0
+offset_bottom = 617.0
+texture_normal = ExtResource("6_ue7np")
+texture_pressed = ExtResource("7_uap0q")
+
+[connection signal="pressed" from="Restart_btn" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Menu_btn" to="." method="_on_button_2_pressed"]

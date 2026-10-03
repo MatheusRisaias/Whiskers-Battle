@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://d35036xy3dfi8"]
+
+[ext_resource type="Script" uid="uid://ctiprx30a043i" path="res://Scripts/Powers_Scripts/reverse_ball.gd" id="1_p6bhg"]
+[ext_resource type="Texture2D" uid="uid://dbhc14wwcda3x" path="res://Assets/Pickup/Pickup_effect01.png" id="2_avmge"]
+[ext_resource type="Texture2D" uid="uid://5sgr7d3fhc6l" path="res://Assets/Pickup/Pickup_effect02.png" id="3_tknsv"]
+[ext_resource type="Texture2D" uid="uid://cx2sd3ooxcp64" path="res://Assets/Pickup/Pickup_effect03.png" id="4_doc01"]
+[ext_resource type="Texture2D" uid="uid://ddohamygn460g" path="res://Assets/Pickup/Pickup_effect04.png" id="5_5dgrm"]
+[ext_resource type="Texture2D" uid="uid://c3oivgsjoh660" path="res://Assets/Pickup/Pickup_effect05.png" id="6_5qe1i"]
+[ext_resource type="Texture2D" uid="uid://5werpv4da370" path="res://Assets/Pickup/Pickup_effect06.png" id="7_wxxjg"]
+[ext_resource type="AudioStream" uid="uid://cuevcqrlncs80" path="res://Sons/Powers/pickup.mp3" id="8_35tpe"]
+[ext_resource type="Texture2D" uid="uid://cfvteld0o1fwq" path="res://Powers_Assets/Reverse_ball/reverse.png" id="33_74ojw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 8.5440035
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_avmge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tknsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_doc01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5dgrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5qe1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wxxjg")
+}],
+"loop": 0,
+"name": &"caught",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_74ojw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Reverse_Ball" type="Area2D" unique_id=393070311]
+scale = Vector2(2, 2)
+script = ExtResource("1_p6bhg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=170654721]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1693045754]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"caught"
+autoplay = "default"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=896841256]
+stream = ExtResource("8_35tpe")
+volume_db = -22.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

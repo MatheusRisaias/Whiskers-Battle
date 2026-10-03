@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://b7njqw5kv80qh"]
+
+[ext_resource type="Script" uid="uid://wnjbc4se6xg0" path="res://Scripts/Elements_Scripts/Ball_Script/ball.gd" id="1_6bfvf"]
+[ext_resource type="Texture2D" uid="uid://c1bsgrfdl1qbu" path="res://PERSONAGENS/ball_24.png" id="2_jhk5p"]
+[ext_resource type="Texture2D" uid="uid://ygjcwsmpuc0e" path="res://Assets/directional_impact_001_small_blue/frame0000.png" id="3_5oloe"]
+[ext_resource type="Texture2D" uid="uid://crfx3hh6byr0r" path="res://Assets/directional_impact_001_small_blue/frame0001.png" id="4_jhk5p"]
+[ext_resource type="Texture2D" uid="uid://ddsrnp8juy1ja" path="res://Assets/directional_impact_001_small_blue/frame0002.png" id="5_b08uk"]
+[ext_resource type="Texture2D" uid="uid://i4f2b4t0lr1d" path="res://Assets/directional_impact_001_small_blue/frame0003.png" id="6_i66pa"]
+[ext_resource type="Texture2D" uid="uid://crvtmfouvhups" path="res://Assets/directional_impact_001_small_blue/frame0004.png" id="7_wvqwx"]
+[ext_resource type="Texture2D" uid="uid://bywo1y7xkpsii" path="res://Assets/directional_impact_001_small_blue/frame0005.png" id="8_17yqw"]
+[ext_resource type="Texture2D" uid="uid://dprraccqtvtqd" path="res://Assets/directional_impact_001_small_blue/frame0006.png" id="9_fiev7"]
+[ext_resource type="AudioStream" uid="uid://c2ns4d5klov4w" path="res://Sons/Ball_Som/ball.mp3" id="10_jhk5p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 21.0
+
+[sub_resource type="Curve" id="Curve_yf5fn"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.98830414, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_g4v7s"]
+colors = PackedColorArray(0.6745098, 0.57254905, 0.75686276, 1, 0.6745098, 0, 0.75686276, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5oloe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jhk5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b08uk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i66pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wvqwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_17yqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fiev7")
+}],
+"loop": 0,
+"name": &"impact",
+"speed": 10.0
+}]
+
+[node name="Ball" type="Area2D" unique_id=1511508829]
+script = ExtResource("1_6bfvf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1554273490]
+z_index = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_jhk5p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1799398855]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Timer" type="Timer" parent="." unique_id=1527239847]
+one_shot = true
+
+[node name="Line2D" type="Line2D" parent="." unique_id=906687692]
+top_level = true
+width_curve = SubResource("Curve_yf5fn")
+gradient = SubResource("Gradient_g4v7s")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="." unique_id=21744449]
+visible = false
+z_index = 1
+position = Vector2(18, -1)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"impact"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1035446089]
+stream = ExtResource("10_jhk5p")
+volume_db = -10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

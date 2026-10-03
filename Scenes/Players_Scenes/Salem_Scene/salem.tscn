@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://boqam84gdf0t5"]
+
+[ext_resource type="Texture2D" uid="uid://de36scn6j6b76" path="res://PERSONAGENS/SALEM.png" id="1_lohbg"]
+[ext_resource type="Script" uid="uid://bvf6ri1dd763k" path="res://Scripts/Players_Scripts/Salem_Script/salem.gd" id="1_vhe6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(102, 5)
+
+[node name="Salem" type="CharacterBody2D" unique_id=182823604 groups=["Players"]]
+script = ExtResource("1_vhe6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2035080663]
+texture = ExtResource("1_lohbg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1037100088]
+position = Vector2(0, 18.5)
+shape = SubResource("RectangleShape2D_g4v7s")

@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://bylcqa0jn618r"]
+
+[ext_resource type="Script" uid="uid://bbbh6wfeb0tra" path="res://Scripts/choose_mode.gd" id="1_6w0i4"]
+[ext_resource type="Texture2D" uid="uid://3shk5ymp8cyw" path="res://Assets/MENU - HUD/BOTÕES/singleplayer_button.png" id="2_2eiee"]
+[ext_resource type="Texture2D" uid="uid://dphhjnc5qamsu" path="res://Assets/background_player.png" id="2_tvksb"]
+[ext_resource type="Texture2D" uid="uid://bri5ovbbys18j" path="res://Assets/MENU - HUD/BOTÕES/singleplayer_button_pressed.png" id="3_36hsg"]
+[ext_resource type="Texture2D" uid="uid://7b8wh1gsueo6" path="res://Assets/MENU - HUD/BOTÕES/multiplayer_button.png" id="4_tvksb"]
+[ext_resource type="Texture2D" uid="uid://ex8lnlnf8su2" path="res://Assets/MENU - HUD/BOTÕES/multiplayer_button_pressed.png" id="5_04oll"]
+[ext_resource type="Texture2D" uid="uid://dtg53hctiveaf" path="res://Assets/MENU - HUD/BOTÕES/Back/btn_back.png" id="6_36hsg"]
+[ext_resource type="Texture2D" uid="uid://d3xfy1lg13y85" path="res://Assets/MENU - HUD/BOTÕES/Back/btn_back_pressed.png" id="7_tvksb"]
+[ext_resource type="Texture2D" uid="uid://b4ljlc8xm10vt" path="res://Assets/MENU - HUD/jade_jump.png" id="9_xa7ad"]
+[ext_resource type="Texture2D" uid="uid://bf635gikorgyp" path="res://Assets/MENU - HUD/salem_jump.png" id="10_o6oc4"]
+[ext_resource type="AudioStream" uid="uid://brba3wgxprn77" path="res://Sons/UI_Menu_Click_faster.mp3" id="11_o6oc4"]
+
+[node name="Choose_Mode" type="Control" unique_id=326114243]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6w0i4")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=458145978]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tvksb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1666714887]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 297.0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=295174320]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_xa7ad")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=232283432]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -275.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2" unique_id=917604349]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.8, 0.8)
+texture = ExtResource("10_o6oc4")
+
+[node name="Singleplayer" type="TextureButton" parent="." unique_id=166484444]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 152.0
+offset_right = 185.0
+offset_bottom = 175.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("2_2eiee")
+texture_pressed = ExtResource("3_36hsg")
+
+[node name="Multiplayer" type="TextureButton" parent="." unique_id=1657533896]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 152.0
+offset_right = 318.0
+offset_bottom = 175.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_tvksb")
+texture_pressed = ExtResource("5_04oll")
+
+[node name="ButtonBack" type="TextureButton" parent="." unique_id=612186978]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 15.0
+offset_right = 71.0
+offset_bottom = 38.0
+texture_normal = ExtResource("6_36hsg")
+texture_pressed = ExtResource("7_tvksb")
+
+[node name="click_button_sound" type="AudioStreamPlayer" parent="." unique_id=1453675180]
+stream = ExtResource("11_o6oc4")
+volume_db = -20.348
+
+[connection signal="pressed" from="Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="Multiplayer" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]

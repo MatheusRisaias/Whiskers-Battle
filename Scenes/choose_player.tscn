@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://btak77gwyi0k1"]
+
+[ext_resource type="Script" uid="uid://dxmkb74ig34w" path="res://Scripts/choose_player.gd" id="1_scsc3"]
+
+[node name="Choose_Player" type="Control" unique_id=1397076236]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_scsc3")
+
+[node name="Jade" type="Button" parent="." unique_id=479454407]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 197.0
+offset_right = 128.0
+offset_bottom = 237.0
+text = "JADE"
+
+[node name="Salem" type="Button" parent="." unique_id=1570203509]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 205.0
+offset_right = 341.0
+offset_bottom = 245.0
+text = "Salem"
+
+[connection signal="pressed" from="Jade" to="." method="_on_jade_pressed"]

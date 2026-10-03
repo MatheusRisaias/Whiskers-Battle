@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://omiovho3qr0d"]
+
+[ext_resource type="Script" uid="uid://vw4q532f7j7b" path="res://Scripts/credits.gd" id="1_7xmno"]
+[ext_resource type="Texture2D" uid="uid://dtg53hctiveaf" path="res://Assets/MENU - HUD/BOTÕES/Back/btn_back.png" id="2_7xmno"]
+[ext_resource type="Texture2D" uid="uid://da0t2w01j7c21" path="res://Assets/Credits_Screen/Background-credits.png" id="2_uy3b0"]
+[ext_resource type="Texture2D" uid="uid://d3xfy1lg13y85" path="res://Assets/MENU - HUD/BOTÕES/Back/btn_back_pressed.png" id="3_uy3b0"]
+[ext_resource type="AudioStream" uid="uid://brba3wgxprn77" path="res://Sons/UI_Menu_Click_faster.mp3" id="5_iynit"]
+
+[node name="Control" type="Control" unique_id=316751798]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7xmno")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=165043604]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 640.0
+texture = ExtResource("2_uy3b0")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1207897495]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=1445511939]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer" unique_id=1408217260]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1947849878]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+offset_transform_enabled = true
+bbcode_enabled = true
+text = "[center]
+[b]Developed by[/b]
+Violet Drizzle
+
+[b]Game Design[/b]
+Violet Drizzle
+
+[b]Programming[/b]
+Violet Drizzle
+
+[b]Art & Visuals[/b]
+Violet Drizzle
+
+[b]Third-Party Assets[/b]
+
+[b]Sound Effects[/b]
+Boolean SFX Pack: 40 Game-Ready Sound Effects
+Created by Boolean Productions / BooleanBeats
+https://booleanbeats.itch.io/boolean-sfx-pack-977-game-ready-sound-effects
+
+[b]Music[/b]
+8-Bit Game Music Pack Vol. 1
+Created by Orbem Studio
+https://orbemstudio.itch.io/8bit-game-music
+
+[b]Visual Effects[/b]
+Super Pixel Effects Gigapack
+Created by unTied Games
+https://untiedgames.itch.io/super-pixel-effects-gigapack
+
+Violet Drizzle
+
+[b]Special Thanks[/b]
+Thank you to all the creators who made their work available to independent developers and helped bring Whiskers Battle to life.
+
+[b]© 2026 Violet Drizzle[/b]
+
+"
+
+[node name="ButtonBack" type="TextureButton" parent="." unique_id=337467566]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 15.0
+offset_right = 71.0
+offset_bottom = 38.0
+texture_normal = ExtResource("2_7xmno")
+texture_pressed = ExtResource("3_uy3b0")
+
+[node name="click_button_sound" type="AudioStreamPlayer" parent="." unique_id=1918968655]
+stream = ExtResource("5_iynit")
+volume_db = -20.348
+
+[connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]

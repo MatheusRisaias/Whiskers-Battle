@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://8hc1lmk5oleh"]
+
+[ext_resource type="Texture2D" uid="uid://d3rk8cpm5suru" path="res://MAPA/BACKGROUND.png" id="1_fmt6y"]
+[ext_resource type="Script" uid="uid://c5yf6thwoy4p0" path="res://Scripts/Arena_Script/arena.gd" id="1_x0ssb"]
+[ext_resource type="PackedScene" uid="uid://d35036xy3dfi8" path="res://Scenes/Powers/reverse_ball.tscn" id="2_dhrvr"]
+[ext_resource type="PackedScene" uid="uid://b6yow42ohb8pw" path="res://Scenes/Elements_Scenes/firefly.tscn" id="2_t0v3u"]
+[ext_resource type="PackedScene" uid="uid://dkdpkc1y0qlvr" path="res://Scenes/Players_Scenes/Jade_Scene/jade.tscn" id="2_uk67p"]
+[ext_resource type="PackedScene" uid="uid://dh6rdy50ts4ke" path="res://Scenes/Powers/speed_up.tscn" id="3_6jx3j"]
+[ext_resource type="PackedScene" uid="uid://boqam84gdf0t5" path="res://Scenes/Players_Scenes/Salem_Scene/salem.tscn" id="4_7jd3s"]
+[ext_resource type="Texture2D" uid="uid://dt4ch5l0o7sfe" path="res://MAPA/RIACHO.png" id="5_uhdya"]
+[ext_resource type="PackedScene" uid="uid://b7njqw5kv80qh" path="res://Scenes/Elements_Scenes/Ball_Scene/ball.tscn" id="7_i8ffn"]
+[ext_resource type="Script" uid="uid://csm065wtpmk8w" path="res://Scripts/Elements_Scripts/Goals/goal_down.gd" id="8_26hb8"]
+[ext_resource type="Texture2D" uid="uid://cqq3fapstelp3" path="res://Assets/Confetes/confetes01.png" id="9_lv6e1"]
+[ext_resource type="Script" uid="uid://dclaljhifd0ox" path="res://Scripts/Elements_Scripts/Goals/goal_up.gd" id="9_yy2mm"]
+[ext_resource type="Texture2D" uid="uid://d1u40dug6hsrs" path="res://Assets/Confetes/confetes02.png" id="10_oy608"]
+[ext_resource type="Texture2D" uid="uid://cjywehfibo7wk" path="res://Assets/Confetes/confetes03.png" id="11_o3win"]
+[ext_resource type="Texture2D" uid="uid://blwmjqueklm6c" path="res://Assets/Confetes/confetes04.png" id="12_t0v3u"]
+[ext_resource type="Texture2D" uid="uid://8jcsmi3lkt8n" path="res://Assets/Confetes/confetes05.png" id="13_5hh1s"]
+[ext_resource type="Texture2D" uid="uid://dwtbbtqrf3gsj" path="res://Assets/Confetes/confetes06.png" id="14_oy608"]
+[ext_resource type="PackedScene" uid="uid://yv1847duf412" path="res://Scenes/Players_Scenes/Froggy/froggy.tscn" id="20_o3win"]
+[ext_resource type="Texture2D" uid="uid://dmjbqq07jk8jy" path="res://Assets/Points/Salem_points/placar_salem.png" id="27_8oqdm"]
+[ext_resource type="PackedScene" uid="uid://bpii0n31tphfp" path="res://Scenes/Powers/freezes.tscn" id="27_gpqco"]
+[ext_resource type="Texture2D" uid="uid://diug34mnb2n5g" path="res://Assets/Points/Jade_points/placar_jade.png" id="28_8oqdm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(408, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_lv6e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_oy608")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_o3win")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t0v3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5hh1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_oy608")
+}],
+"loop": 0,
+"name": &"goal",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_lv6e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_oy608")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_o3win")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t0v3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5hh1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_oy608")
+}],
+"loop": 0,
+"name": &"goal",
+"speed": 10.0
+}]
+
+[node name="Arena" type="Node2D" unique_id=1633371198]
+script = ExtResource("1_x0ssb")
+firefly_scene = ExtResource("2_t0v3u")
+power_up_scenes = Array[PackedScene]([ExtResource("2_dhrvr"), ExtResource("3_6jx3j"), ExtResource("27_gpqco")])
+
+[node name="Background" type="Sprite2D" parent="." unique_id=686031481]
+position = Vector2(240, 320)
+texture = ExtResource("1_fmt6y")
+
+[node name="Riacho" type="Sprite2D" parent="." unique_id=53816812]
+position = Vector2(234, 320)
+texture = ExtResource("5_uhdya")
+
+[node name="Ball" parent="." unique_id=1812868771 instance=ExtResource("7_i8ffn")]
+position = Vector2(100, 450)
+x_min = 65.0
+x_max = 400.0
+
+[node name="Goals" type="Node" parent="." unique_id=1274162894]
+
+[node name="Goal_Down" type="Area2D" parent="Goals" unique_id=32301282]
+position = Vector2(181, 643)
+script = ExtResource("8_26hb8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goals/Goal_Down" unique_id=1629525027]
+position = Vector2(58, 8)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Goals/Goal_Down" unique_id=1585831622]
+visible = false
+position = Vector2(57, -38)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"goal"
+frame = 5
+frame_progress = 1.0
+
+[node name="Goal_Up" type="Area2D" parent="Goals" unique_id=151385397]
+script = ExtResource("9_yy2mm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Goals/Goal_Up" unique_id=334268422]
+position = Vector2(234, -14)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Goals/Goal_Up" unique_id=364681940]
+visible = false
+position = Vector2(233, 40)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+animation = &"goal"
+frame = 5
+frame_progress = 1.0
+flip_v = true
+
+[node name="Players" type="Node" parent="." unique_id=1999638512]
+
+[node name="Salem" parent="Players" unique_id=1477171543 instance=ExtResource("4_7jd3s")]
+position = Vector2(222, 67)
+
+[node name="Jade" parent="Players" unique_id=829308953 instance=ExtResource("2_uk67p")]
+position = Vector2(129, 555)
+
+[node name="Scores" type="Node" parent="." unique_id=1992373839]
+
+[node name="Salem_Points" type="Sprite2D" parent="Scores" unique_id=1633013537]
+position = Vector2(366, 21)
+texture = ExtResource("27_8oqdm")
+
+[node name="Points_Salem" type="Label" parent="Scores/Salem_Points" unique_id=1496090312]
+offset_left = -15.0
+offset_top = -13.0
+offset_right = -5.0
+offset_bottom = 10.0
+text = "0"
+
+[node name="Jade_Points" type="Sprite2D" parent="Scores" unique_id=2046932186]
+position = Vector2(100, 620)
+texture = ExtResource("28_8oqdm")
+
+[node name="Points_Jade" type="Label" parent="Scores/Jade_Points" unique_id=89534267]
+offset_left = -15.0
+offset_top = -13.0
+offset_right = -5.0
+offset_bottom = 10.0
+text = "0"
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=580725385]
+wait_time = 8.0
+autostart = true
+
+[node name="Environment" type="Node" parent="." unique_id=1037205055]
+
+[node name="Froggy" parent="Environment" unique_id=694531312 instance=ExtResource("20_o3win")]
+position = Vector2(326, 320)
+
+[node name="Fireflies" type="Node2D" parent="." unique_id=823143934]
+
+[connection signal="area_entered" from="Ball" to="Ball" method="_on_area_entered"]
+[connection signal="area_entered" from="Goals/Goal_Down" to="Goals/Goal_Down" method="_on_area_entered"]
+[connection signal="animation_finished" from="Goals/Goal_Down/AnimatedSprite2D" to="Goals/Goal_Down" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Goals/Goal_Up" to="Goals/Goal_Up" method="_on_area_entered"]
+[connection signal="animation_finished" from="Goals/Goal_Up/AnimatedSprite2D" to="Goals/Goal_Up" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

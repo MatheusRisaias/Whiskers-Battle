@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dkdpkc1y0qlvr"]
+
+[ext_resource type="Texture2D" uid="uid://dhembfdbw86s6" path="res://PERSONAGENS/JADE.png" id="1_rxosp"]
+[ext_resource type="Script" uid="uid://de4wwyrqnk53" path="res://Scripts/Players_Scripts/Jade_Script/jade.gd" id="1_s7f84"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(102, 6.5)
+
+[node name="Jade" type="CharacterBody2D" unique_id=300313025 groups=["Players"]]
+script = ExtResource("1_s7f84")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1166334089]
+texture = ExtResource("1_rxosp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1067670502]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_g4v7s")

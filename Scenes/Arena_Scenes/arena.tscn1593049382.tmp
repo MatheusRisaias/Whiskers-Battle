@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://8hc1lmk5oleh"]
+
+[ext_resource type="Texture2D" uid="uid://d3rk8cpm5suru" path="res://MAPA/BACKGROUND.png" id="1_fmt6y"]
+[ext_resource type="Script" uid="uid://c5yf6thwoy4p0" path="res://Scripts/Arena_Script/arena.gd" id="1_x0ssb"]
+[ext_resource type="PackedScene" uid="uid://dkdpkc1y0qlvr" path="res://Scenes/Players_Scenes/Jade_Scene/jade.tscn" id="2_uk67p"]
+[ext_resource type="PackedScene" uid="uid://boqam84gdf0t5" path="res://Scenes/Players_Scenes/Salem_Scene/salem.tscn" id="4_7jd3s"]
+[ext_resource type="Texture2D" uid="uid://dt4ch5l0o7sfe" path="res://MAPA/RIACHO.png" id="5_uhdya"]
+[ext_resource type="Texture2D" uid="uid://dmxle1fyxwqb" path="res://MAPA/VAGALUMES.png" id="6_ls4wl"]
+
+[node name="Arena" type="Node2D" unique_id=1633371198]
+script = ExtResource("1_x0ssb")
+coop = true
+
+[node name="Background" type="Sprite2D" parent="." unique_id=686031481]
+position = Vector2(240, 320)
+texture = ExtResource("1_fmt6y")
+
+[node name="Riacho" type="Sprite2D" parent="." unique_id=53816812]
+position = Vector2(234, 320)
+texture = ExtResource("5_uhdya")
+
+[node name="PLAYERS" type="Node" parent="." unique_id=1999638512]
+
+[node name="Salem" parent="PLAYERS" unique_id=1477171543 instance=ExtResource("4_7jd3s")]
+position = Vector2(222, 67)
+
+[node name="Jade" parent="PLAYERS" unique_id=829308953 instance=ExtResource("2_uk67p")]
+position = Vector2(129, 555)
+speed_movement = 150.0
+
+[node name="Vagalumes" type="Sprite2D" parent="PLAYERS" unique_id=1423039637]
+position = Vector2(242, 321)
+texture = ExtResource("6_ls4wl")

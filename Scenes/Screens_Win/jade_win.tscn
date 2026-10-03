@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bfycpdguftlk5"]
+
+[ext_resource type="Script" uid="uid://c8fygd3wfdxe8" path="res://Scripts/Screens_Win_Script/jade_win.gd" id="1_nt2f5"]
+[ext_resource type="Texture2D" uid="uid://b02olt7kn3ovx" path="res://Assets/Screen_Wins/jade_winner_01.png" id="3_tfcan"]
+[ext_resource type="Texture2D" uid="uid://dvbomf2qtjvse" path="res://Assets/MENU - HUD/BOTÕES/btn_restart.png" id="4_ea5bc"]
+[ext_resource type="Texture2D" uid="uid://dhpfqmdrt241" path="res://Assets/Screen_Wins/jade_winner_02.png" id="4_spt4r"]
+[ext_resource type="Texture2D" uid="uid://c4dfxlsd0br2b" path="res://Assets/MENU - HUD/BOTÕES/btn_menu.png" id="5_aebnk"]
+[ext_resource type="Texture2D" uid="uid://bp1b81m7cwiq" path="res://Assets/MENU - HUD/BOTÕES/btn_restart_pressed.png" id="5_o4yxn"]
+[ext_resource type="Texture2D" uid="uid://cfvxinc8nauth" path="res://Assets/MENU - HUD/BOTÕES/btn_menu_pressed.png" id="6_o4yxn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tfcan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_spt4r")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Jade_Win" type="Control" unique_id=1166368244]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nt2f5")
+
+[node name="Background" type="AnimatedSprite2D" parent="." unique_id=1016481342]
+position = Vector2(240, 320)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame = 1
+frame_progress = 0.2675652
+
+[node name="Restart_btn" type="TextureButton" parent="." unique_id=644159630]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 522.0
+offset_right = 286.0
+offset_bottom = 568.0
+texture_normal = ExtResource("4_ea5bc")
+texture_pressed = ExtResource("5_o4yxn")
+
+[node name="Menu_btn" type="TextureButton" parent="." unique_id=1413995928]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 571.0
+offset_right = 290.0
+offset_bottom = 617.0
+texture_normal = ExtResource("5_aebnk")
+texture_pressed = ExtResource("6_o4yxn")
+
+[connection signal="pressed" from="Restart_btn" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Menu_btn" to="." method="_on_button_2_pressed"]
